@@ -33,4 +33,31 @@ RSpec.describe "Doctor Show Page" do
     end
   end
 
+  it "removes a a doctor's patient from it's show page" do
+    visit doctor_path(@doctor_1)
+
+    within "#patients" do
+      within "#patient_id-#{@patient_1.id}" do
+        expect(page).to have_button("Delete")
+      end
+      within "#patient_id-#{@patient_2.id}" do
+        expect(page).to have_button("Delete")
+      end
+    end
+    within "#patient_id-#{@patient_1.id}" do
+      click_button "Delete"
+    end
+
+    expect(current_path).to eq(doctor_path(@doctor_1))
+    expect(page).to_not have_css("#patient_id-#{@patient_1.id}")
+    expect(page).to_not have_content(@patient_1.name)
+
+    visit doctor_path(@doctor_2)
+    expect(page).to have_css("#patient_id-#{@patient_1.id}")
+    within "#patient_id-#{@patient_1.id}" do
+      expect(page).to have_content(@patient_1.name)
+    end
+  end
+
+
 end
