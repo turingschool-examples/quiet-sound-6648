@@ -24,7 +24,7 @@ RSpec.describe 'Remove a patient from a doctor', type: :feature do
     expect(page).to have_content(patient.name)
   end
 
-  it 'does not affect other doctor patients when removing a patient' do
+  it 'does not affect other doctors\' caseloads when removing a patient' do
     hospital = Hospital.create!(name: 'Sacred Heart')
     doctor1 = hospital.doctors.create!(name: 'Dr. House', specialty: 'Diagnostic Medicine', university: 'Princeton')
     doctor2 = hospital.doctors.create!(name: 'Dr. Wilson', specialty: 'Oncology', university: 'Yale')

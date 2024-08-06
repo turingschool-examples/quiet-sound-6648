@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # route to remove a patient from a doctor
   delete 'doctors/:doctor_id/patients/:patient_id', to: 'doctor_patients#destroy', as: 'doctor_patient'
 
+  # route for Patient index page
+  get 'patients', to: 'patients#index', as: 'patients'
 end
