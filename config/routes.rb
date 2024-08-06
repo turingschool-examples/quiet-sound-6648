@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :doctors do
+    resources :doctor_patients, only: [:destroy], param: :patient_id
+  end
+  resources :patients, only:[:index]
 end

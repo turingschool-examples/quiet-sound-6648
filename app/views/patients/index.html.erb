@@ -1,0 +1,7 @@
+<div id="patients_over_18">
+  <% @patients_over_18.each do |patient| %>
+    <div id="patient_id-<%= patient.id%>">
+      <%= patient.name %>
+    </div>
+  <% end %>
+</div>
