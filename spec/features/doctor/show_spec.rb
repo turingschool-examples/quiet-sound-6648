@@ -53,9 +53,9 @@ RSpec.describe "Doctor Show Page" do
     expect(page).to_not have_content(@patient_1.name)
 
     visit doctor_path(@doctor_2)
-    expect(page).to have_css("#patient_id-#{@patient_1.id}")
-    within "#patient_id-#{@patient_1.id}" do
-      expect(page).to have_content(@patient_1.name)
+    expect(page).to have_css("#patient_id-#{@patient_3.id}")
+    within "#patient_id-#{@patient_3.id}" do
+      expect(page).to have_content(@patient_3.name)
     end
   end
 
