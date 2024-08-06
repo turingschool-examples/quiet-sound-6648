@@ -49,6 +49,7 @@ RSpec.describe 'Doctor show page', type: :feature do
     expect(page).to have_content(doctor.specialty)
     expect(page).to have_content(doctor.university)
     expect(page).to have_content(hospital.name)
-    expect(page).to_not have_selector('ul')
+    expect(page).to have_selector('h2', text: 'Patients:')
+    expect(page).to_not have_selector('li')
   end
 end
