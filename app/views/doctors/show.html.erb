@@ -1,13 +1,14 @@
-Name: <%= @doctor.name %><br>
-Specialty: <%= @doctor.specialty %><br>
-University: <%= @doctor.university %><br>
-Hospital: <%= @doctor.hospital.name %><br>
+<h1>Doctor: <%= @doctor.name %></h1>
+<p>Specialty: <%= @doctor.specialty %></p>
+<p>University: <%= @doctor.university %></p>
+<p>Hospital: <%= @doctor.hospital.name %></p>
 
 <div id="patients">
+  <h2>Patients</h2>
   <% @doctor.patients.each do |patient| %>
     <div id="patient_id-<%= patient.id %>">
       <%= patient.name %>
-      <%= button_to "Delete", doctor_patient_path(@doctor, patient), method: :delete %>
+      <%= button_to "Delete", doctor_doctor_patient_path(@doctor, patient), method: :delete %>
     </div>
   <% end %>
 </div>
